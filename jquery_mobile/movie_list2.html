@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    	$(document).ready(function () {
+    		$.ajax({
+				url: 'movie.json',
+				/*url: 'movie.json',*/
+				type : 'get',
+				dataType :'json',
+				/* data : {apikey: "8122ef34", t : $('#title').val()}, */
+				/* data : {apikey: "8122ef34", t : "Avengers"}, */
+				success: function(data){
+					/* $('#output').html("<h2>" + data.Title + "</h2>"); */
+					$('#poster1').attr("src",data[0].Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name1').html(data[0].Title);
+					$('#openday1').text(data[0].Actors);
+					
+					$('#poster2').attr("src",data[1].Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name2').html(data[1].Title);
+					$('#openday2').text(data[1].Actors);
+					
+					$('#poster3').attr("src",data[2].Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name3').html(data[2].Title);
+					$('#openday3').text(data[2].Actors);
+					
+					$('#poster4').attr("src",data[3].Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name4').html(data[3].Title);
+					$('#openday4').text(data[3].Actors);
+					
+					$('#poster5').attr("src",data[4].Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name5').html(data[4].Title);
+					$('#openday5').text(data[4].Actors);
+					
+				}
+				
+			});
+    	});
+    </script>
+</head>
+<body>
+ 
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">action</li>
+                <li>
+                <a href="#">
+                	<img id ="poster1" src="../images/aven.jpg"/>
+                	<h3 id="name1">Avengers</h3>
+                	<p id="openday1"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                	<img id ="poster2" src="../images/aven.jpg"/>
+                	<h3 id="name2">Avengers</h3>
+                	<p id="openday2"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                	<img id ="poster3" src="../images/aven.jpg"/>
+                	<h3 id="name3">Avengers</h3>
+                	<p id="openday3"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                	<img id ="poster4" src="../images/aven.jpg"/>
+                	<h3 id="name4">Avengers</h3>
+                	<p id="openday4"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                	<img id ="poster5" src="../images/aven.jpg"/>
+                	<h3 id="name5">Avengers</h3>
+                	<p id="openday5"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+   
+    <div data-role="page" id="second-page"><!-- -->>
+        <div data-role="header" data-theme="b" data-add-back-btn="true"><!-- -->>
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>

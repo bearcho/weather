@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Ajax Basic 6</title>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css" />
+	<script>
+		$(document).ready(function () {
+			$(document).on('touchstart',function(e){
+				$('body').appnd('<h1>touch start</h1>');
+			});
+			$(document).on('touchmove',function(e){
+				$('body').appnd('<h1>touch start</h1>');
+			});
+			$(document).on('touchend',function(e){
+				$('body').appnd('<h1>touch start</h1>');
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Ajax Basic 5</title>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#btnSearch').click(function(){
+				$.ajax({
+					url: 'http://www.omdbapi.com',
+					/*url: 'movie.json',*/
+					type : 'get',
+					dataType :'json',
+					data : {apikey: "8122ef34", t : $('#title').val()},
+					success: function(data){
+						$('#output').html("<h2>" + data.Title + "</h2>");
+						$('#poster').attr("src",data.Poster);
+					}
+					
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" id="title"/>
+	<button id="btnSearch">Search</button>
+	<h1>Result</h1>
+	<div id="output" ></div>
+	
+	<img src ="" id="poster"/>
+</body>
+</html>

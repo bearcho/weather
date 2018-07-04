@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    	$(document).ready(function () {
+    		$.ajax({
+				url: 'http://www.omdbapi.com',
+				/*url: 'movie.json',*/
+				type : 'get',
+				dataType :'json',
+				/* data : {apikey: "8122ef34", t : $('#title').val()}, */
+				data : {apikey: "8122ef34", t : "Avengers"},
+				success: function(data){
+					/* $('#output').html("<h2>" + data.Title + "</h2>"); */
+					$('#poster').attr("src",data.Poster);
+					//$('#name').val(data.Title);
+					//$('#openday').val(data.Released);
+					$('#name').html(data.Title);
+					$('#openday').text(data.Released);
+				}
+				
+			});
+    	});
+    </script>
+</head>
+<body>
+ 
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">action</li>
+                <li>
+                <a href="#">
+                	<img id ="poster" src="../images/aven.jpg"/>
+                	<h3 id="name">Avengers</h3>
+                	<p id="openday"></p>
+                	<!-- <span class="ui-li-aside">Vesibulumn</span> -->
+                	<span class="ui-li-count">123</span>
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+   
+    <div data-role="page" id="second-page"><!-- -->>
+        <div data-role="header" data-theme="b" data-add-back-btn="true"><!-- -->>
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>

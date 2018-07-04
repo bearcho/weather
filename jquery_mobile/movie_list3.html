@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+  	   
+    	$(document).ready(function () {
+    		var output ='';
+    		$.ajax({
+				url: 'movie.json',
+				/*url: 'movie.json',*/
+				type : 'get',
+				dataType :'json',
+				/* data : {apikey: "8122ef34", t : $('#title').val()}, */
+				/* data : {apikey: "8122ef34", t : "Avengers"}, */
+				success: function(datas){
+					$.each(datas, function (key, data){
+						
+						output += '<li>';
+						output += '<a href="#">';
+						output += '<img src="' + data.Poster + '"/>';
+						output += '<h3>'+ data.Title + '</h3>';
+						output += '<p>'+ data.Actors + '</p>';
+						output += '</a></li>'; 
+						
+						
+					});
+					//$('#target').html(output);
+					$('#target').append(output);
+					$('#target').listview("refresh");
+					
+				}
+    			
+				
+			});
+    		
+    		
+    		
+    		
+    	});
+    </script>
+</head>
+<body>
+ 
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content" >
+          <ul data-role="listview" data-inset="true" id="target">
+                <li data-role="list-divider">action</li>
+            
+          </ul>  
+        </div>
+    </div>
+   
+    <div data-role="page" id="second-page"><!-- -->>
+        <div data-role="header" data-theme="b" data-add-back-btn="true"><!-- -->>
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>

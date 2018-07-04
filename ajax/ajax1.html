@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Ajax Basic 1</title>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$.ajax('data.html',{
+				success: function (data){
+					$('body').append(data);
+				}
+				
+			});
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    	$(document).ready(function () {
+    		$('#loginbtn').click(function(){
+    			if($('#id-input').val() == null || $('#id-input').val() == "")
+    			{
+    				$.mobile.changePage("#dialog",{
+    					role:"dialog"
+    				});
+    			}else{
+    				$.mobile.changePage("30-32.html",{
+    					trasition:"flip", changeHash:"false"
+    				});
+    			}
+    			
+    			if($('#password-input').val() == null || $('#password-input').val() == "")
+    			{
+    				alert("insert password");
+    			}
+    		});
+    		
+    	});
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="id-input">ID</label>
+                <input type="text" name="id-input" id="id-input" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="password-input">Password</label>
+                <input type="password" name="password-input" id="password-input" />
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-role="button" id="loginbtn">login</a></div>
+                <div class="ui-block-b"><a href="#" data-role="button">reset</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="dialog" data-role="page">
+    	<div data-role="header">
+    		<h1>error</h1>
+    	</div>
+    	<div data-role="content">
+    		please enter your id and password
+    		<button id="closeDialog"></button>
+    	</div>
+    	
+    
+    
+    </div>
+</body>
+</html>
